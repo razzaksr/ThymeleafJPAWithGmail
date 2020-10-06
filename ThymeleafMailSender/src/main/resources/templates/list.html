@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home of GitHub</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Mail List</h1>
+		<h3 th:text="${info}"></h3>
+		<!-- <a href="newhub"><h3>Add New Hub</h3></a> -->
+		<br/>
+		<table border="4" cellspacing="4" cellpadding="4">
+			<thread>
+				<tr>
+					<th>Entry Number</th><th>Candidate Name</th>
+					<th>Email</th><th>Actions</th>
+				</tr>
+			</thread>
+			<tbody>
+				<tr th:each="mail:${record}">
+					<td th:text="${mail.ano}">Entry Number</td>
+					<td th:text="${mail.name}">Candidate Name</td>
+					<td th:text="${mail.email}">Mail Address</td>
+					<td>
+						<ol type="I">
+							<li><a th:href="@{'/sendmail/'+${mail.ano}}">Send</a></li>
+							<!-- <li><a th:href="@{'/leaf/letedit/'+${hub.hubId}}">Edit</a></li>
+							<li><a th:href="@{'/leaf/delete/'+${hub.hubId}}">Delete</a></li> -->
+						</ol>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
